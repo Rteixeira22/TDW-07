@@ -291,3 +291,35 @@ body {
   opacity: 1;
 }
  
+.navbar {
+  background-color: #333;
+  padding: 1rem;
+}
+
+.navbar-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-item {
+  margin: 0;
+}
+
+.navbar-item a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  display: block;
+}
+
+.navbar-item a:hover {
+  background-color: #555;
+}
+
+.navbar-item.active a {
+  background-color: #444; /* Fundo diferente */
+  border: 2px solid red; /* Borda vermelha */
+}

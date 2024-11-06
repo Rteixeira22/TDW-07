@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './styles.css';
+import '../../src/styles.css';
 
 function Forms({onSubmit}) {
     const [inputValue, setInputValue] = useState('');
