@@ -8,21 +8,31 @@ function Tasks( {newTask, buttonValue} ) {
 
 
     
-    const [tasks, setTasks] = useState ([
-        {id:1, name: ' Eat', completed: true, editState: false},
-        {id:2, name: ' Sleep', completed: false, editState: false},
-        {id:3, name: ' Repeat', completed: false, editState: false},
-    ]);
-
+    const [tasks, setTasks] = useState(() => {
+        const savedTasks = localStorage.getItem('tasks');
+        return savedTasks ? JSON.parse(savedTasks) : [
+            {id:1, name: ' Eat', completed: true, editState: false},
+            {id:2, name: ' Sleep', completed: false, editState: false},
+            {id:3, name: ' Repeat', completed: false, editState: false},
+        ];
+    });
 
     useEffect(() => {
         if (newTask) {
-            setTasks(prevTasks => [
-                ...prevTasks,
-                { id: prevTasks.length + 1, name: newTask, completed: false }
-            ]);
+            setTasks(prevTasks => {
+                const updatedTasks = [
+                    ...prevTasks,
+                    { id: prevTasks.length + 1, name: newTask, completed: false, editState: false }
+                ];
+                localStorage.setItem('tasks', JSON.stringify(updatedTasks));
+                return updatedTasks;
+            });
         }
     }, [newTask]);
+
+    useEffect(() => {
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+    }, [tasks]);
 
     
     const filteredTasks = tasks.filter(task => {
