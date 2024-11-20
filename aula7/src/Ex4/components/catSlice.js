@@ -7,10 +7,10 @@ export const fetchCats = createAsyncThunk(
   async ({ page, limit }) => {
     const response = await axios.get(`https://api.thecatapi.com/v1/images/search`, {
       params: {
-        page,
-        limit,
+        page ,
+        limit ,
         order: "asc",
-        api_key: process.env.REACT_APP_CAT_API_KEY,
+        api_key: 'live_tVnKZdHlLRSC96yqECYJ3KDQpuqbMe1HNBarlF0BXCEizJWaBSdicQvcdoJ0vnBv',
       },
     });
     return response.data;
