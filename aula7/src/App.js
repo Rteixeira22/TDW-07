@@ -6,6 +6,7 @@ import About from './about';
 import Ex1 from './Ex1/ex1';
 import Ex2 from './Ex2/ex2';
 import Ex3 from './Ex3/ex3';
+import Ex4 from './Ex4/ex4';
 import Navbar from './navbar';
 import { TodoProvider } from './contexct';
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="Ex1" element={<Ex1 />} />
           <Route path="Ex2" element={<Ex2 />} />
           <Route path="Ex3" element={<Ex3 />} />
+          <Route path="Ex4" element={<Ex4 />} />
         </Routes>
       </Router>
     </TodoProvider>

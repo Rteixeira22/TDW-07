@@ -56,6 +56,9 @@ function Navbar() {
                 <NavbarItem className={location.pathname === '/Ex3' ? 'active' : ''}>
                     <Link to="/Ex3">Aula 3</Link>
                 </NavbarItem>
+                <NavbarItem className={location.pathname === '/Ex4' ? 'active' : ''}>
+                  <Link to="/Ex4">Aula 4</Link>
+                </NavbarItem>
             </NavbarList>
         </NavbarContainer>
     );

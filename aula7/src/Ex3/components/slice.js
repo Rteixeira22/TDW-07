@@ -19,6 +19,8 @@ const balanceSlice = createSlice({
             }
         },
     },
+
+    
 });
 
 export const { deposito, levantamento } = balanceSlice.actions;
