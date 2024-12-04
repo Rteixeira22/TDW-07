@@ -1,17 +1,14 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchCats, incrementPage, decrementPage } from './catSlice';
-import styled from 'styled-components';
-import '../../styles.css';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCats, incrementPage, decrementPage } from "./catSlice";
+import styled from "styled-components";
+import "../../styles.css";
 
-// Estilizar o contêiner dos botões de paginação
 const PaginationContainer = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 20px;
 `;
-
-// Estilizar os botões de paginação
 const PaginationButton = styled.button`
   background-color: #007bff;
   color: white;
@@ -32,7 +29,6 @@ const PaginationButton = styled.button`
   }
 `;
 
-// Estilizar as imagens dos gatos
 const CatImage = styled.img`
   width: 200px;
   height: 200px;
@@ -41,7 +37,6 @@ const CatImage = styled.img`
   margin: 10px;
 `;
 
-// Estilizar o contêiner das imagens
 const ImageContainer = styled.ul`
   display: flex;
   flex-wrap: wrap;
@@ -50,7 +45,6 @@ const ImageContainer = styled.ul`
   padding: 0;
 `;
 
-// Estilizar os itens da lista
 const ImageItem = styled.li`
   display: flex;
   justify-content: center;
@@ -60,13 +54,15 @@ const ImageItem = styled.li`
 
 const ItemList = () => {
   const dispatch = useDispatch();
-  const { cats, status, error, page, limit } = useSelector((state) => state.cats);
+  const { cats, status, error, page, limit } = useSelector(
+    (state) => state.cats
+  );
 
   useEffect(() => {
     dispatch(fetchCats({ page, limit }));
   }, [dispatch, page, limit]);
 
-  if (status === 'loading') {
+  if (status === "loading") {
     return <div>Loading...</div>;
   }
 
@@ -84,7 +80,10 @@ const ItemList = () => {
         ))}
       </ImageContainer>
       <PaginationContainer>
-        <PaginationButton onClick={() => dispatch(decrementPage())} disabled={page === 1}>
+        <PaginationButton
+          onClick={() => dispatch(decrementPage())}
+          disabled={page === 1}
+        >
           Página Anterior
         </PaginationButton>
         <PaginationButton onClick={() => dispatch(incrementPage())}>

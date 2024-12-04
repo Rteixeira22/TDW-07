@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import '../../src/styles.css';
-import Forms from './forms';
-import Tasks from './tasks';
-import { TodoContext } from '../contexct'; // Certifique-se de que o caminho está correto
-import { useContext } from 'react';
-import styled from 'styled-components';
+import React, { useState } from "react";
+import "../../src/styles.css";
+import Forms from "./forms";
+import Tasks from "./tasks";
+import { TodoContext } from "../contexct";
+import { useContext } from "react";
+import styled from "styled-components";
 
 const Button = styled.button`
   color: #0088dd;
@@ -16,7 +16,7 @@ const Button = styled.button`
 `;
 
 function Page() {
-  const [newValue, setNewValue] = useState('');
+  const [newValue, setNewValue] = useState("");
   const { buttonValue, setButtonValue } = useContext(TodoContext);
 
   const handleFormSubmit = (inputValue) => {
@@ -26,7 +26,6 @@ function Page() {
   const handleClick = (value) => {
     setButtonValue(value);
   };
-  
 
   return (
     <div className="todoapp stack-large">
@@ -35,7 +34,7 @@ function Page() {
       <Forms onSubmit={handleFormSubmit} />
 
       <div>
-      <Button onClick={() => setButtonValue(0)}>
+        <Button onClick={() => setButtonValue(0)}>
           <span className="visually-hidden">Show</span>
           <span>All</span>
           <span className="visually-hidden">tasks</span>
@@ -54,7 +53,7 @@ function Page() {
         </Button>
       </div>
 
-      <Tasks newTask={newValue}  buttonValue={buttonValue} />
+      <Tasks newTask={newValue} buttonValue={buttonValue} />
     </div>
   );
 }
